@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
+import App from "./src/App";
 
-const App = () => {
-  return <h1>My App</h1>;
-};
 ReactDOM.render(<App />, document.getElementById("root"));
