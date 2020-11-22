@@ -1,49 +1,49 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const isDevelopment = process.env.NODE_ENV === "development";
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const isDevelopment = process.env.NODE_ENV === 'development';
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: path.resolve(__dirname, "index.html"),
-  filename: "index.html",
-  inject: "body",
+  template: path.resolve(__dirname, 'index.html'),
+  filename: 'index.html',
+  inject: 'body',
 });
 module.exports = {
-  mode: "development",
-  entry: path.resolve(__dirname, "/index.js"),
+  mode: 'development',
+  entry: path.resolve(__dirname, '/index.js'),
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
   },
   devServer: {
     open: true,
-    contentBase: path.resolve(__dirname, "/dist"),
+    contentBase: path.resolve(__dirname, '/dist'),
   },
-  devtool: "source-map",
+  devtool: 'source-map',
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules)/,
-        use: ["babel-loader"],
+        use: ['babel-loader'],
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
         test: /\.module\.s(a|c)ss$/,
         use: [
-          isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader,
+          isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               modules: true,
               sourceMap: isDevelopment,
             },
           },
           {
-            loader: "sass-loader",
+            loader: 'sass-loader',
             options: {
               sourceMap: isDevelopment,
             },
@@ -54,10 +54,10 @@ module.exports = {
         test: /.s(a|c)ss$/,
         exclude: /\.module.(s(a|c)ss)$/,
         use: [
-          isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader,
-          "css-loader",
+          isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
           {
-            loader: "sass-loader",
+            loader: 'sass-loader',
             options: {
               sourceMap: isDevelopment,
             },
@@ -67,14 +67,14 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: [".js", ".jsx", ".scss"],
+    extensions: ['.js', '.jsx', '.scss'],
   },
   plugins: [
     new CleanWebpackPlugin(),
     HtmlWebpackPluginConfig,
     new MiniCssExtractPlugin({
-      filename: isDevelopment ? "[name].css" : "[name].hash.css",
-      chunkFilename: isDevelopment ? "[id].css" : "[id].[hash].css",
+      filename: isDevelopment ? '[name].css' : '[name].hash.css',
+      chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css',
     }),
   ],
 };
