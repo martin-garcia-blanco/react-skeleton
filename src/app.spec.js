@@ -9,7 +9,6 @@ describe('deleteme test', () => {
     expect(1).toBe(1);
 
     const foo = getByText('My App');
-    console.log(foo);
 
     expect(getByText('My App')).toBeInTheDocument();
   });
