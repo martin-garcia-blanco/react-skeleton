@@ -7,9 +7,6 @@ describe('deleteme test', () => {
     const { getByText } = render(<App />);
 
     expect(1).toBe(1);
-
-    const foo = getByText('My App');
-
     expect(getByText('My App')).toBeInTheDocument();
   });
 });
