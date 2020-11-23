@@ -2,8 +2,8 @@
   "name": "react-skeleton",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/martin-garcia-blanco/react-skeleton",
-  "author": "martin-garcia-blanco <programadopormartin@gmail.com>",
+  "repository": "put here your repository",
+  "author": "put here the authors",
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode production",
